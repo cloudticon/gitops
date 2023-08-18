@@ -21,7 +21,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-        - image: registry.cloudticon.com/cdk8s-argocd-test:a9ec5889c8309dbfae78698d83c861b0816b0c36
+        - image: registry.cloudticon.com/cdk8s-argocd-test:b490987e14c836e0fcd4ace60896776bec10bbb6
           imagePullPolicy: Always
           name: api
           ports:
