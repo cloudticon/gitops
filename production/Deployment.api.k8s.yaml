@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cdk8s-argocd-test-api-c8195a9c
+  name: api
 spec:
   minReadySeconds: 0
   progressDeadlineSeconds: 600
@@ -21,7 +21,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-        - image: registry.cloudticon.com/cdk8s-argocd-test:147a957fdc880b8d477e96619dd7f61081f3ed15
+        - image: registry.cloudticon.com/cdk8s-argocd-test:d31b6c58a32cc910ef839ed8ee475e7241b56d5b
           imagePullPolicy: Always
           name: api
           ports:

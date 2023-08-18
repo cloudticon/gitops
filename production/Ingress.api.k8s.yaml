@@ -1,15 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: cdk8s-argocd-test-api-service-ingress-c87b6e21
+  name: api
 spec:
   rules:
-    - http:
+    - host: test-api.devticon.cloudticon.com
+      http:
         paths:
           - backend:
               service:
-                name: cdk8s-argocd-test-api-service-c85b8c20
+                name: api
                 port:
                   number: 3000
-            path: /test
+            path: /
             pathType: Prefix
+  tls:
+    - hosts:
+        - test-api.devticon.cloudticon.com
