@@ -6,7 +6,7 @@ metadata:
   name: api
 spec:
   rules:
-    - host: test-api.devticon.cloudticon.com
+    - host: test-api-development.devticon.cloudticon.com
       http:
         paths:
           - backend:
