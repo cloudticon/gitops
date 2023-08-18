@@ -21,7 +21,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-        - image: registry.cloudticon.com/cdk8s-argocd-test:a73cb3834068da105b8e603a41590d1f328c3369
+        - image: registry.cloudticon.com/cdk8s-argocd-test:9eaf2d347077ae310a91a8dfafadc62db5ff1c6c
           imagePullPolicy: Always
           name: api
           ports:
@@ -47,6 +47,6 @@ spec:
       restartPolicy: Always
       securityContext:
         fsGroupChangePolicy: Always
-        runAsNonRoot: true
+        runAsNonRoot: false
       setHostnameAsFQDN: false
       terminationGracePeriodSeconds: 30
