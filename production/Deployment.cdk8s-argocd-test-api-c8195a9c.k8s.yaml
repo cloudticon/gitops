@@ -21,7 +21,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-        - image: registry.cloudticon.com/cdk8s-argocd-test:9eaf2d347077ae310a91a8dfafadc62db5ff1c6c
+        - image: registry.cloudticon.com/cdk8s-argocd-test:147a957fdc880b8d477e96619dd7f61081f3ed15
           imagePullPolicy: Always
           name: api
           ports:
@@ -37,7 +37,7 @@ spec:
             allowPrivilegeEscalation: false
             privileged: false
             readOnlyRootFilesystem: true
-            runAsNonRoot: true
+            runAsNonRoot: false
           startupProbe:
             failureThreshold: 3
             tcpSocket:
