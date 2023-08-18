@@ -13,7 +13,7 @@ spec:
         app: hello-k8s
     spec:
       containers:
-        - image: paulbouwer/hello-kubernetes:1.7
+        - image: registry.cloudticon.com/cdk8s-argocd-test:6f2c49e2710078b251db56f6d29d221b791381e4
           name: hello-kubernetes
           ports:
             - containerPort: 8080
