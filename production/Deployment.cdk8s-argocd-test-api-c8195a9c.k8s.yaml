@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdk8s-argocd-test-api-c8195a9c
+spec:
+  minReadySeconds: 0
+  progressDeadlineSeconds: 600
+  replicas: 2
+  selector:
+    matchLabels:
+      cdk8s.io/metadata.addr: cdk8s-argocd-test-api-c843c609
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        cdk8s.io/metadata.addr: cdk8s-argocd-test-api-c843c609
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - image: registry.cloudticon.com/cdk8s-argocd-test:a73cb3834068da105b8e603a41590d1f328c3369
+          imagePullPolicy: Always
+          name: api
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 2048Mi
+            requests:
+              cpu: 1000m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          startupProbe:
+            failureThreshold: 3
+            tcpSocket:
+              port: 3000
+      dnsPolicy: ClusterFirst
+      hostNetwork: false
+      restartPolicy: Always
+      securityContext:
+        fsGroupChangePolicy: Always
+        runAsNonRoot: true
+      setHostnameAsFQDN: false
+      terminationGracePeriodSeconds: 30
